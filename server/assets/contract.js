@@ -151,25 +151,25 @@ const connectMetamask = async() => {
     ];
 
 
-    document.getElementById("subStatus").innerText = "STATUS FROM : " + Address;
+    document.getElementById("subStatus").innerText = "Estado de : " + Address;
 
     window.web3 = await new Web3(window.ethereum);
     window.contract = await new window.web3.eth.Contract(ABI, Address);
 
-    document.getElementById("connectTxt").innerText = "Connected";
+    document.getElementById("connectTxt").innerText = "Conectado";
     document.getElementById("connectInd").style.backgroundColor = 'aquamarine';
     document.getElementById("loginPage").style.display = 'none';
     document.getElementById("panelPage").style.display = 'block';
 
     const winner = await window.contract.methods.returnWinner().call();
     if (winner) {
-        document.getElementById("Status").innerHTML = "Voting has Concluded";
+        document.getElementById("Status").innerHTML = "La votacion ha terminado";
         var disable = document.querySelectorAll(".disable-this");
         disable.forEach(function(button){
             button.classList.add("disable-btn");
         })
     } else {
-        document.getElementById("Status").innerHTML = "Voting is Active";
+        document.getElementById("Status").innerHTML = "La votación está activa";
     }
 }
 
@@ -179,32 +179,32 @@ const connectMetamask = async() => {
 const setCanditates = async() => {
     const myEntry = document.getElementById("candidateName").value;
     await window.contract.methods.addCandidate(myEntry).send({ from: account });
-    document.getElementById("Status").innerText = "Added Candidate";
+    document.getElementById("Status").innerText = "Candidato añadido";
 }
 
 const setVoters = async() => {
     const myEntry = document.getElementById("voterAddr").value;
     await window.contract.methods.setVoters(myEntry).send({ from: account });
-    document.getElementById("Status").innerText = "Added Voter";
+    document.getElementById("Status").innerText = "Votante añadido";
 }
 
 const totVotes = async() => {
     const data = await window.contract.methods.voteTotal().call();
-    document.getElementById("totalVote").innerText = "{ Vote Count: " + data + " }";
-    document.getElementById("Status").innerText = "Vote count Fetched Recently";
+    document.getElementById("totalVote").innerText = "{ Número de votos: " + data + " }";
+    document.getElementById("Status").innerText = "Recuento de votos obtenido recientemente";
 }
 
 const concludeVoting = async() => {
     await window.contract.methods.concludeVoting().send({ from: account });
-    document.getElementById("Status").innerText = "Voting Concluded";
+    document.getElementById("Status").innerText = "La votación ha terminado";
 }
 
 const showWinner = async() => {
     const data = await window.contract.methods.returnWinner().call();
     if (data === "") {
-        document.getElementById("Status").innerHTML = "End the Vote to see the winner";
+        document.getElementById("Status").innerHTML = "Terminar votación para ver el ganador";
     } else {
-        document.getElementById("Status").innerHTML = "<span class='display-5'>🎉</span> Candidate <strong>" + data + "</strong> won the voting <span class='display-5'>🎉</span>";
+        document.getElementById("Status").innerHTML = "<span class='display-5'>🎉</span> Candidato <strong>" + data + "</strong> ha ganado la votación <span class='display-5'>🎉</span>";
     }
 
 }
@@ -221,7 +221,7 @@ async function getList() {
         document.getElementById("writeList").appendChild(addList);
     }
 
-    document.getElementById("Status").innerText = "Candidate list Fetched Recently";
+    document.getElementById("Status").innerText = "Lista de candidatos obtenida recientemente";
 }
 
 //for Voter
@@ -230,7 +230,7 @@ async function getCandidates() {
     const winner = await window.contract.methods.returnWinner().call();
 
     if (winner) {
-        document.getElementById("candidate-list").innerHTML = "<div class='h1 text-center mt-5'><h6>VOTING HAS CONCLUDED</h6><span class='display-5'>🎉</span> Candidate <strong>" + winner + "</strong> won the voting <span class='display-5'>🎉</span></div>";
+        document.getElementById("candidate-list").innerHTML = "<div class='h1 text-center mt-5'><h6>La votación ha finalizado</h6><span class='display-5'>🎉</span> Candidato <strong>" + winner + "</strong> ha ganado la votación <span class='display-5'>🎉</span></div>";
     } else {
 
         const data = await window.contract.methods.candidatesCount().call();
@@ -257,7 +257,7 @@ const vote = async() => {
     if (selectedListItem) {
         await window.contract.methods.vote(selectedListItem.getAttribute('value')).send({ from: account });
     } else {
-        alert('Please select an item from the list');
+        alert('Por favor selecciona un elemento de la lista');
     }
 
 }

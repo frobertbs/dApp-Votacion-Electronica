@@ -23,31 +23,31 @@ contract Voting {
     }
 
     function setVoters(address addr) public {
-        require(msg.sender == owner, "Only the contract creator can set the voters");
+        require(msg.sender == owner, "Solo el creador del contrato puede establecer los votantes");
         rights[addr] = true;
     }
 
     function addCandidate(string memory name) public {
-        require(msg.sender == owner, "Only the contract creator can set the candidates");
-        require(voteTotal == 0, "Cannot submit candidate after voting started");
+        require(msg.sender == owner, "Solo el creador del contrato puede establecer los votantes");
+        require(voteTotal == 0, "No se puede enviar candidato despues de que haya comenzado la votacion");
         candidatesCount++;
         candidates[candidatesCount] = Candidate(candidatesCount, name, 0);
     }
 
     function vote(uint candidateId) public {
-        require(rights[msg.sender], "Voter doesn't have the rights to vote");
-        require(msg.sender != owner, "The contract creator cannot participate in the voting");
-        require(!voters[msg.sender], "Vote already cast from this address");
-        require(candidateId > 0 && candidateId <= candidatesCount, "Invalid candidate ID");
-        require(candidatesCount >= 2, "Must be at least 2 candidates before votes can be cast");
-        require(conclude == 0, "Voting concluded");
+        require(rights[msg.sender], "El votante no tiene derecho a votar");
+        require(msg.sender != owner, "El creador del contrato no puede participar en la votacion.");
+        require(!voters[msg.sender], "Voto ya emitido desde esta direccion");
+        require(candidateId > 0 && candidateId <= candidatesCount, "ID de candidato invalido");
+        require(candidatesCount >= 2, "Debe haber al menos 2 candidatos antes de que se puedan emitir los votos");
+        require(conclude == 0, "Votacion Concluida");
         voters[msg.sender] = true;
         candidates[candidateId].voteCount++;
         voteTotal++;
     }
 
     function concludeVoting() public {
-        require(msg.sender == owner, "Only the contract creator can conclude the voting");
+        require(msg.sender == owner, "Solo el creador del contrato puede concluir la votacion.");
         uint maxVote = 0;
         for(uint i=1; i<=candidatesCount; i++) {
             if(candidates[i].voteCount > maxVote) {

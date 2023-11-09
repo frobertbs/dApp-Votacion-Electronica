@@ -7,7 +7,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <title>OpenVote | A Blockbain Voting System</title>
+    <title>UPM Votación Electrónica</title>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -95,13 +95,13 @@
     <nav class="navbar container">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="./assets/logo.svg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top"> OpenVote <span>Admin</span>
+                <img src="./assets/logo.svg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top"> UPM Votación <span>Admin</span>
             </a>
 
-            <!-- Connection Indicator -->
+            <!-- Indicador de Conexión -->
             <div style="display: flex; align-items: center;padding: 5px;color: grey;border-radius: 10px;border: 2px solid aliceblue;">
                 <div style="width: 10px; height: 10px; border-radius: 50%; background-color: gainsboro;" id="connectInd"></div>
-                <span style="display: inline-block; margin-left: 5px;" id="connectTxt">Not connected</span>
+                <span style="display: inline-block; margin-left: 5px;" id="connectTxt">No Conectado</span>
             </div>
 
         </div>
@@ -113,11 +113,11 @@
                     account_circle
                     </span>
                 <div class="card-body">
-                    <h5 class="card-title">Connect Your Wallet</h5>
-                    <p class="card-text">To manage voting, connect the wallet address that was used to create the smart contract.</p>
+                    <h5 class="card-title">Conecta tu Wallet</h5>
+                    <p class="card-text">Para administrar la votación, conecte la dirección de la wallet que se usó para crear el contrato inteligente.</p>
 
                     <div class="d-grid gap-2">
-                        <button onclick="connectMetamask()" class="btn btn-primary" type="button">Connect</button>
+                        <button onclick="connectMetamask()" class="btn btn-primary" type="button">Conectar</button>
                     </div>
 
                 </div>
@@ -129,7 +129,7 @@
                 <div class="col-md-12 mb-3 p-3">
                     <div class="card text-center status" style="height: 25vh;">
                         <div class="card-body">
-                            <code class="card-title h1" id="Status">Voting is Active</code>
+                            <code class="card-title h1" id="Status">La votación está activa</code>
                             <br><br>
                             <small class="card-text text-muted" id="subStatus"></small>
                         </div>
@@ -141,8 +141,8 @@
                             <span class="material-icons">
                                     ballot
                                     </span>
-                            <h5 class="card-title">Manage Candidates</h5>
-                            <p class="card-text">Add Candidates and Fetch List.</p>
+                            <h5 class="card-title">Administrar Candidatos</h5>
+                            <p class="card-text">Agregar candidatos y mostrar lista.</p>
                         </div>
                     </div>
                 </div>
@@ -152,8 +152,8 @@
                             <span class="material-icons">
                                     post_add
                                     </span>
-                            <h5 class="card-title">Manage Voters</h5>
-                            <p class="card-text">Add Voter and Show Votes.</p>
+                            <h5 class="card-title">Administrar votantes</h5>
+                            <p class="card-text">Añadir votante y mostrar votos</p>
                         </div>
                     </div>
                 </div>
@@ -163,8 +163,8 @@
                             <span class="material-icons">
                                     unpublished
                                     </span>
-                            <h5 class="card-title">End Voting</h5>
-                            <p class="card-text">End Current Voting Sesion.</p>
+                            <h5 class="card-title">Cerrar votación</h5>
+                            <p class="card-text">Terminar la sesión de votación actual.</p>
                         </div>
                     </div>
                 </div>
@@ -174,8 +174,8 @@
                             <span class="material-icons">
                                     emoji_events
                                     </span>
-                            <h5 class="card-title">Show Winner</h5>
-                            <p class="card-text">Display winner in the status.</p>
+                            <h5 class="card-title">Ver Ganador</h5>
+                            <p class="card-text">Mostrar ganador en el estado.</p>
                         </div>
                     </div>
                 </div>
@@ -191,8 +191,8 @@
 
                         <nav>
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                <button class="nav-link active" id="nav-addc-tab" data-bs-toggle="tab" data-bs-target="#nav-addc" type="button" role="tab" aria-controls="nav-addc" aria-selected="true">Add Candidates</button>
-                                <button onclick="getList()" class="nav-link" id="nav-showc-tab" data-bs-toggle="tab" data-bs-target="#nav-showc" type="button" role="tab" aria-controls="nav-showc" aria-selected="false">Fetch Candidates List</button>
+                                <button class="nav-link active" id="nav-addc-tab" data-bs-toggle="tab" data-bs-target="#nav-addc" type="button" role="tab" aria-controls="nav-addc" aria-selected="true">Añadir Candidatos</button>
+                                <button onclick="getList()" class="nav-link" id="nav-showc-tab" data-bs-toggle="tab" data-bs-target="#nav-showc" type="button" role="tab" aria-controls="nav-showc" aria-selected="false">Obtener lista de candidatos</button>
 
                             </div>
                         </nav>
@@ -200,11 +200,11 @@
                             <div class="tab-pane fade show active" id="nav-addc" role="tabpanel" aria-labelledby="nav-addc-tab" tabindex="0">
 
 
-                                <h5 class="card-title">Enter Candidate Name</h5>
-                                <p class="card-text">Enter the name of the candidate that you would like to store in the contract.</p>
+                                <h5 class="card-title">Ingrese el nombre del candidato</h5>
+                                <p class="card-text">Ingrese el nombre del candidato que le gustaría almacenar en el contrato.</p>
                                 <input type="text" class="form-control" id="candidateName" placeholder="Name">
                                 <br>
-                                <a href="#" class="btn btn-primary" onclick="setCanditates()">Add Candidate</a>
+                                <a href="#" class="btn btn-primary" onclick="setCanditates()">Añadir Candidato</a>
 
                             </div>
                             <div class="tab-pane fade" id="nav-showc" role="tabpanel" aria-labelledby="nav-showc-tab" tabindex="0">
@@ -215,7 +215,7 @@
                         </div>
 
                         <div class="text-end">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         </div>
 
                     </div>
@@ -232,19 +232,19 @@
 
                         <nav>
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                <button class="nav-link active" id="nav-addv-tab" data-bs-toggle="tab" data-bs-target="#nav-addv" type="button" role="tab" aria-controls="nav-addv" aria-selected="true">Add Voter</button>
-                                <button onclick="totVotes()" class="nav-link" id="nav-showv-tab" data-bs-toggle="tab" data-bs-target="#nav-showv" type="button" role="tab" aria-controls="nav-showv" aria-selected="false">Fetch Total Votes</button>
+                                <button class="nav-link active" id="nav-addv-tab" data-bs-toggle="tab" data-bs-target="#nav-addv" type="button" role="tab" aria-controls="nav-addv" aria-selected="true">Añadir Votante</button>
+                                <button onclick="totVotes()" class="nav-link" id="nav-showv-tab" data-bs-toggle="tab" data-bs-target="#nav-showv" type="button" role="tab" aria-controls="nav-showv" aria-selected="false">Mostrar número total de votos</button>
 
                             </div>
                         </nav>
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="nav-addv" role="tabpanel" aria-labelledby="nav-addv-tab" tabindex="0">
 
-                                <h5 class="card-title">Enter Voter Public Address</h5>
-                                <p class="card-text">Enter the voter's public address to confirm their eligibility to vote.</p>
+                                <h5 class="card-title">Ingrese la dirección pública del votante</h5>
+                                <p class="card-text">Ingrese la dirección pública del votante para confirmar su elegibilidad para votar.</p>
                                 <input type="email" class="form-control" id="voterAddr" placeholder="Voter Public Address">
                                 <br>
-                                <a href="#" class="btn btn-primary" onclick="setVoters()">Add Voter</a>
+                                <a href="#" class="btn btn-primary" onclick="setVoters()">Añadir Votante</a>
 
                             </div>
                             <div class="tab-pane fade text-center" id="nav-showv" role="tabpanel" aria-labelledby="nav-showv-tab" tabindex="0">
@@ -255,7 +255,7 @@
 
 
                         <div class="text-end">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         </div>
 
                     </div>
@@ -269,11 +269,11 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <div class="h5 p-3">Are you sure you want to conclude the voting session?</div>
+                        <div class="h5 p-3">¿Está seguro de que desea concluir la sesión de votación?</div>
 
                         <div class="text-end">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="concludeVoting()">Continue</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="concludeVoting()">Continuar</button>
                         </div>
 
                     </div>

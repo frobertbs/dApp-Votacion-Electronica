@@ -7,7 +7,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <title>OpenVote | A Blockbain Voting System</title>
+    <title>UPM Votación Electrónica</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"></script>
@@ -107,13 +107,13 @@
     <nav class="navbar container">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="./assets/logo.svg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top"> OpenVote <span>Voter</span>
+                <img src="./assets/logo.svg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top"> UPM Votación Electrónica <span>Votante</span>
             </a>
 
-            <!-- Connection Indicator -->
+            <!-- Indicador de Conexión-->
             <div style="display: flex; align-items: center;padding: 5px;color: grey;border-radius: 10px;border: 2px solid aliceblue;">
                 <div style="width: 10px; height: 10px; border-radius: 50%; background-color: gainsboro;" id="connectInd"></div>
-                <span style="display: inline-block; margin-left: 5px;" id="connectTxt">Not connected</span>
+                <span style="display: inline-block; margin-left: 5px;" id="connectTxt">No Conectado</span>
             </div>
 
         </div>
@@ -125,11 +125,11 @@
                     account_circle
                     </span>
                 <div class="card-body">
-                    <h5 class="card-title">Connect Your Wallet</h5>
-                    <p class="card-text">To start voting, please connect your Wallet. Make sure that your public key has been added to the voter list.</p>
+                    <h5 class="card-title">Conecta tu Wallet</h5>
+                    <p class="card-text">Para comenzar a votar, conecte su wallet. Asegúrese de que su clave pública se haya agregado a la lista de votantes.</p>
 
                     <div class="d-grid gap-2">
-                        <button onclick="connectMetamask()" class="btn btn-primary" type="button">Connect</button>
+                        <button onclick="connectMetamask()" class="btn btn-primary" type="button">Conectar</button>
                       </div>
 
                 </div>
@@ -159,8 +159,8 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <h5 class="card-title">Refresh List</h5>
-                                    <p class="card-text"><small class="text-muted">Click here to fetch the Candidate list.</small></p>
+                                    <h5 class="card-title">Refrescar lista</h5>
+                                    <p class="card-text"><small class="text-muted">Haga clic aquí para obtener la lista de candidatos</small></p>
                                 </div>
                             </div>
                         </div>
@@ -176,8 +176,8 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <h5 class="card-title">Vote Candidate</h5>
-                                    <p class="card-text"><small class="text-muted">Vote selected candidate from the list.</small></p>
+                                    <h5 class="card-title">Votar Candidato</h5>
+                                    <p class="card-text"><small class="text-muted">Votar candidato seleccionado de la lista.</small></p>
                                 </div>
                             </div>
                         </div>

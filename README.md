@@ -1,28 +1,21 @@
-# OpenVote - A Blockchain Voting Solution
+# Dapp Votacion Electrónica
 
-**Note: Currently Under Development**
 
-OpenVote is a secure voting application built on blockchain technology. It includes two HTML pages: one for voters (index.html) and one for admin management (admin.html).
+Dapp Votacion Electronica es una aplicación de votación segura construida con tecnología blockchain. Incluye dos páginas HTML: una para votantes (index.html) y otra para administración (admin.html)
 
-## Requirements:
+## Requisitos:
 - Metamask - https://metamask.io/
 - Ganache - https://trufflesuite.com/ganache/
 - Remix Ethereum IDE - https://remix.ethereum.org/
 - Bootstrap v5.3
 - web3.js - Ethereum JavaScript API
 
-## Usage:
-1. Download and create a testnet using Ganache
-2. Connect the testnet with MetaMask (https://ibb.co/t342kxW)
-3. Compile the solidity program (voting.sol) in Remix Ethereum IDE
-4. Deploy the compiled smart contract to your testnet and copy the contract address
-5. Run the Python script (serve.py) with the contract address as argument to start serving the web application.
+## Uso:
+1. Descarga y crea una red de prueba utilizando Ganache
+2. Conecta la red de prueba con MetaMask
+3. Compila el programa de Solidity (voting.sol) en Remix Ethereum IDE
+4. Implementa el contrato inteligente compilado en la red de prueba y copia la address del contrato
+5. Ejecuta el script de Python (serve.py) con la address del contrato como argumento para iniciar el servidor
 
-Please note that this is currently under development and may not be ready for use in a production environment. We welcome any feedback and contributions from the community to help improve this project.
-
-
-
-
-https://user-images.githubusercontent.com/21116180/219931401-c6fc7b85-6d73-4e7a-8020-b0baed0b4da2.mp4
 
 
